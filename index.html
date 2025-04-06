@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        #loading {
+            display: none; /* Hide loading by default */
+        }
+    </style>
+</head>
+<body style="background: url('{{ url_for('static', filename='background.jpg') }}') center/cover no-repeat fixed;">
+
+    <div class="container">
+        <h1>Fake News Detection</h1>
+        <textarea id="newsInput" placeholder="Enter your news text here..."></textarea>
+        <button onclick="checkNews()">Check</button>
+        <div id="loading">Analyzing...</div>
+        <div id="result"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
