@@ -1,111 +1,122 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+    --primary: #007bff;
+    --primary-dark: #0056b3;
+    --success-bg: #e6f4ea;
+    --success-text: #276738;
+    --error-bg: #fdeaea;
+    --error-text: #a33a3a;
+    --gray-bg: #f2f4f8;
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
 
 body {
-    font-family: 'Orbitron', sans-serif;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--gray-bg);
+    color: #333;
+    margin: 0;
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
-    overflow: hidden;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: -1;
-}
-
-.container {
-    max-width: 500px;
-    margin: auto;
-    background: rgba(30, 30, 30, 0.85);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
-    animation: fadeIn 1s ease-in-out;
 }
 
 h1 {
-    font-size: 26px;
-    text-transform: uppercase;
-    color: cyan;
-    text-shadow: 0px 0px 10px cyan;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #222;
+    animation: fadeIn 1s ease-in-out;
 }
 
-textarea {
-    width: 100%;
-    height: 120px;
-    padding: 12px;
-    border-radius: 5px;
-    border: none;
-    background: rgba(50, 50, 50, 0.9);
-    color: white;
+textarea#newsInput {
+    width: 90%;
+    max-width: 600px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
     font-size: 16px;
-    outline: none;
-    transition: transform 0.3s ease;
+    resize: vertical;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--card-shadow);
+    animation: fadeIn 1s ease-in-out;
 }
 
-textarea:focus {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.6);
+textarea#newsInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    outline: none;
 }
 
 button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
+    background-color: var(--primary);
+    color: white;
     border: none;
-    background: linear-gradient(90deg, cyan, blue);
-    color: black;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 button:hover {
-    background: linear-gradient(90deg, blue, cyan);
-    transform: scale(1.05);
-    box-shadow: 0px 0px 20px cyan;
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 #loading {
-    margin-top: 15px;
-    font-size: 18px;
-    color: yellow;
     display: none;
-    animation: pulse 1s infinite alternate;
-}
-
-@keyframes pulse {
-    from { opacity: 0.6; }
-    to { opacity: 1; }
+    font-size: 18px;
+    margin-top: 15px;
+    color: #555;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 #result {
-    margin-top: 15px;
-    font-size: 22px;
-    font-weight: bold;
     display: none;
-    padding: 10px;
-    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--card-shadow);
+    animation: fadeInResult 0.6s ease-in-out;
 }
 
 .real {
-    color: lightgreen;
-    text-shadow: 0px 0px 10px lightgreen;
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #c6ecd9;
 }
 
 .fake {
-    color: red;
-    text-shadow: 0px 0px 10px red;
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px solid #f5c6cb;
 }
 
+/* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInResult {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
