@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake News Detector</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
@@ -14,18 +19,30 @@
 </head>
 <body style="background: url('{{ url_for('static', filename='background.jpg') }}') center/cover no-repeat fixed;">
 
-    <div class="overlay"></div>
-    <div class="container">
-        <h1 class="fade-in">📰 Fake News Detection</h1>
-
-        <textarea id="newsInput" placeholder="Enter your news text here..." class="fade-in delay-1"></textarea>
-
-        <button onclick="checkNews()" class="fade-in delay-2">Check</button>
-
-        <div id="loading" class="fade-in delay-3">Analyzing, please wait...</div>
-        <div id="result" class="fade-in delay-3"></div>
+    <!-- Background Quotes -->
+    <div class="quotes-background">
+        <div class="quote">“Journalism is printing what someone else does not want printed; everything else is public relations.”<br><span>– George Orwell</span></div>
+        <div class="quote">“The best journalism is about telling the truth even when it hurts.”<br><span>– Christiane Amanpour</span></div>
+        <div class="quote">“Freedom of the press is not just important to democracy, it is democracy.”<br><span>– Walter Cronkite</span></div>
+        <div class="quote">“News is what somebody somewhere wants to suppress; all the rest is advertising.”<br><span>– Lord Northcliffe</span></div>
+        <div class="quote">“Our liberty depends on the freedom of the press, and that cannot be limited without being lost.”<br><span>– Thomas Jefferson</span></div>
     </div>
 
+    <!-- Dark overlay to improve contrast -->
+    <div class="overlay"></div>
+
+    <!-- App Container -->
+    <div class="container fade-in">
+        <h1>📰 Fake News Detection</h1>
+
+        <textarea id="newsInput" placeholder="Enter your news text here..."></textarea>
+        <button onclick="checkNews()">Check</button>
+
+        <div id="loading">Analyzing, please wait...</div>
+        <div id="result"></div>
+    </div>
+
+    <!-- Script -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
